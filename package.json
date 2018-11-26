@@ -1,0 +1,27 @@
+{
+  "name": "speechbot-api",
+  "version": "0.0.1",
+  "description": "Bot API for the SpeechBubble Chat Server",
+  "author": "Joseph Huckaby <jhuckaby@gmail.com>",
+  "homepage": "https://github.com/jhuckaby/speechbot-api",
+  "license": "MIT",
+  "main": "api.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jhuckaby/speechbot-api"
+  },
+  "bugs": {
+    "url": "https://github.com/jhuckaby/speechbot-api/issues"
+  },
+  "keywords": [
+    "speech",
+    "speechbubble",
+    "bot",
+    "api"
+  ],
+  "dependencies": {
+  	"ws": "4.1.0",
+  	"pixl-tools": "^1.0.0"
+  },
+  "devDependencies": {}
+}
