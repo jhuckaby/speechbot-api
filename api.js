@@ -185,7 +185,9 @@ module.exports = class SpeechBotAPI extends EventEmitter {
 	
 	send(cmd, data) {
 		// send low-level command to server
-		this.socket.send( JSON.stringify({ cmd: cmd, data: data }) );
+		if (this.socket && this.connected) {
+			this.socket.send( JSON.stringify({ cmd: cmd, data: data }) );
+		}
 	}
 	
 	sendCommand(cmd, data) {

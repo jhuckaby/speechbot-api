@@ -1,6 +1,6 @@
 {
   "name": "speechbot-api",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Bot API for the SpeechBubble Chat Server",
   "author": "Joseph Huckaby <jhuckaby@gmail.com>",
   "homepage": "https://github.com/jhuckaby/speechbot-api",
