@@ -20,7 +20,7 @@ let api = new SpeechBotAPI( {
 } );
 
 api.on('connecting', function() {
-	console.log("Reconnecting");
+	console.log("Connecting to server...");
 });
 api.on('connect', function() {
 	console.log("Successfully connected to server.");
@@ -32,7 +32,7 @@ api.on('close', function(code, msg) {
 	console.log("Server connection closed: " + code + ": " + (msg || "(No message)"));
 });
 api.on('login', function() {
-	console.log("Successfully authenticated.");
+	console.log("Successfully authenticated! Ready to send commands.");
 });
 
 api.on('said', function(chat) {
