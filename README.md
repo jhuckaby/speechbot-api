@@ -37,10 +37,12 @@ api.on('login', function() {
 
 api.on('said', function(chat) {
 	// someone said something!
+	// chat: { text, content, type, channel_id, username, nickname, full_name, is_admin }
+	
 	if (chat.text.match(/bot/)) {
-		// someone mentioned "bot", so let's reply!
-		// Note: text is interpreted as HTML
-		api.say('ops', "Hey, you said bot!  This is <b>bold</b>.");
+		// someone mentioned "bot", so let's reply in the same channel!
+		// Note: your text will be interpreted as HTML
+		api.say(chat.channel_id, `You rang, ${chat.nickname}?  This is <b>bold</b>.`);
 	}
 });
 
