@@ -23,7 +23,7 @@ api.on('connecting', function() {
 	console.log("Reconnecting");
 });
 api.on('connect', function() {
-	console.log(3, "Successfully connected to server.");
+	console.log("Successfully connected to server.");
 });
 api.on('error', function(err) {
 	console.error("Bot API Error: " + err);
