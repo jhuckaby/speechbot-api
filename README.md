@@ -5,7 +5,7 @@ Bot API for the SpeechBubble Chat Server.  Unreleased as of this writing.  Docs 
 ## Example Use
 
 ```js
-const BotAPI = require('speechbot-api');
+const SpeechBotAPI = require('speechbot-api');
 
 let api = new SpeechBotAPI( {
 	hostname: 'myspeechbubble.com',
