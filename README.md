@@ -2,6 +2,57 @@
 
 Bot API for the SpeechBubble Chat Server.  Unreleased as of this writing.  Docs in progress.
 
+## Example Use
+
+```js
+const BotAPI = require('speechbot-api');
+
+let api = new SpeechBotAPI( {
+	hostname: 'myspeechbubble.com',
+	port: 443,
+	ssl: true,
+	username: 'mybot',
+	password: '1234',
+	channels: ['lobby', 'ops'],
+	reconnect: true,
+	reconnectDelaySec: 5,
+	connectTimeoutSec: 5
+} );
+
+api.on('connecting', function() {
+	console.log("Reconnecting");
+});
+api.on('connect', function() {
+	console.log(3, "Successfully connected to server.");
+});
+api.on('error', function(err) {
+	console.error("Bot API Error: " + err);
+});
+api.on('close', function(code, msg) {
+	console.log("Server connection closed: " + code + ": " + (msg || "(No message)"));
+});
+api.on('login', function() {
+	console.log("Successfully authenticated.");
+});
+
+api.on('said', function(chat) {
+	// someone said something!
+	if (chat.text.match(/bot/)) {
+		// someone mentioned "bot", so let's reply!
+		// Note: text is interpreted as HTML
+		api.say('ops', "Hey, you said bot!  This is <b>bold</b>.");
+	}
+});
+
+// Advanced:
+
+api.on('speechbubble', function(cmd, data) {
+	// firehose listener for all internal server commands
+	// e.g. error, pong, joined, welcome, said, left, user_updated, avatar_changed, channel_updated, topic_changed
+	console.log("SPEECH COMMAND: ", cmd, data);
+});
+```
+
 # License
 
 **The MIT License (MIT)**
